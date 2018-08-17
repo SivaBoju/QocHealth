@@ -1,4 +1,4 @@
-#  QocHealth Test
+#  Qoc Health Test
 
 ## Requirements
 Create an iPhone application that accomplishes the following
