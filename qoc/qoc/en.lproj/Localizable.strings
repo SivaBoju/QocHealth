@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  qoc
+
+  Created by Sivakumar Boju on 2018-08-17.
+  Copyright © 2018 Qoc Health. All rights reserved.
+*/
+
+//  List View
+"titleListView" = "Top Paid Apps";
