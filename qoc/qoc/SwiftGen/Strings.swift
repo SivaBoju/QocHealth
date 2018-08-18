@@ -9,6 +9,10 @@ enum L10n {
   case titleListView
   /// Detail
   case titleDetailView
+  /// Top Apps
+  case statusHeadline
+  /// Fetching details...
+  case statusSubHeadLine
 }
 // swiftlint:enable type_body_length
 
@@ -21,6 +25,10 @@ extension L10n: CustomStringConvertible {
         return L10n.tr(key: "titleListView")
       case .titleDetailView:
         return L10n.tr(key: "titleDetailView")
+      case .statusHeadline:
+        return L10n.tr(key: "statusHeadline")
+      case .statusSubHeadLine:
+        return L10n.tr(key: "statusSubHeadLine")
     }
   }
 

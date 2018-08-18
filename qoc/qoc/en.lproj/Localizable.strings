@@ -9,3 +9,5 @@
 //  List View
 "titleListView" = "Apps";
 "titleDetailView" = "Detail";
+"statusHeadline" = "Top Apps";
+"statusSubHeadLine" = "Fetching details...";

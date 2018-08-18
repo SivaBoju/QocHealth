@@ -34,7 +34,14 @@ class ListViewController: UIViewController {
   //  MARK: - Private Methods
   private func initScreen() {
     self.title = L10n.titleListView.string
+    self.setupStatusView()
     self.setupCollectionView()
+  }
+  
+  private func setupStatusView() {
+    let logo = UIImage(named: "logoQoc")
+    let statusView:AMStatusView = AMStatusView(frame: self.view.bounds, image: logo!, headline: L10n.statusHeadline.string, subheading: L10n.statusSubHeadLine.string)
+    self.view.addSubview(statusView)
   }
   
   @IBAction func testUrl() {
