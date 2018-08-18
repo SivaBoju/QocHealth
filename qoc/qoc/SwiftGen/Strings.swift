@@ -5,8 +5,10 @@ import Foundation
 // swiftlint:disable file_length
 // swiftlint:disable type_body_length
 enum L10n {
-  /// Top Paid Apps
+  /// Apps
   case titleListView
+  /// Detail
+  case titleDetailView
 }
 // swiftlint:enable type_body_length
 
@@ -17,6 +19,8 @@ extension L10n: CustomStringConvertible {
     switch self {
       case .titleListView:
         return L10n.tr(key: "titleListView")
+      case .titleDetailView:
+        return L10n.tr(key: "titleDetailView")
     }
   }
 

@@ -7,4 +7,5 @@
 */
 
 //  List View
-"titleListView" = "Top Paid Apps";
+"titleListView" = "Apps";
+"titleDetailView" = "Detail";
