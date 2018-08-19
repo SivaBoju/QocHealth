@@ -25,14 +25,17 @@ class ListViewCell: UICollectionViewCell {
   private func initCell() {
     self.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     self.layer.borderWidth = 2
+    self.itemImageView.layer.cornerRadius = 6
+    self.itemImageView.clipsToBounds = true
+    self.itemImageView.contentMode = .scaleAspectFill
   }
   
   //  MARK: - Public Methods
-  func setupCell(imageName:String){
-    if let image = UIImage(named: imageName) {
-      itemImageView.image = image
-      itemImageView.contentMode = .scaleAspectFill
-      itemImageView.setNeedsDisplay()
+  func setupCell(entry:Entry){
+    self.itemLabel.text = entry.name
+    if let urlString = entry.images.first {
+      self.itemImageView.imageFromServerURL(urlString: urlString)
+      self.itemImageView.setNeedsDisplay()
     }
   }
 

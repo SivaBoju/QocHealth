@@ -8,7 +8,59 @@
 
 import UIKit
 
+//  MARK: - Application Extensions
+extension UIApplication {
+  //  method to check if the device is jail broken
+  //  to restrict app launches from unauthorized devices
+  func isJailbroken() -> Bool {
+    #if arch(i386) || arch(x86_64)
+    return false
+    #else
+    let fileManager = FileManager.default
+    let filesToCheck = [
+      "/Applications/Cydia.app",
+      "/Library/MobileSubstrate/MobileSubstrate.dylib",
+      "/bin/bash",
+      "/usr/bin/ssh",
+      "/usr/sbin/sshd",
+      "/var/cache/apt",
+      "/etc/apt",
+      "/var/lib/cydia",
+      "/private/var/tmp/cydia.log",
+      "/var/tmp/cydia.log"
+    ]
+    
+    for file in filesToCheck {
+      guard fileManager.fileExists(atPath: file) == false else {
+        return true
+      }
+    }
+    return false
+    #endif
+  }
+}
+
+//  MARK: - ImageView Extensions
+extension UIImageView {
+  public func imageFromServerURL(urlString: String) {
+    self.image = nil
+    URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
+      
+      if error != nil {
+        return
+      }
+      DispatchQueue.main.async(execute: { () -> Void in
+        let image = UIImage(data: data!)
+        self.image = image
+      })
+      
+    }).resume()
+  }
+}
+
+//  MARK: - View Extensions
 extension UIView {
+  //  method to load view from xib file
   func loadViewFromNib(nibName:String) -> UIView {
     let bundle = Bundle(for: type(of: self))
     let nib = UINib(nibName: nibName, bundle: bundle)
@@ -16,6 +68,7 @@ extension UIView {
     return view
   }
   
+  //  method to load the content view from xib file
   func loadContentView(nibName:String)->UIView {
     let contentView = self.loadViewFromNib(nibName: nibName)
     contentView.backgroundColor = UIColor.clear

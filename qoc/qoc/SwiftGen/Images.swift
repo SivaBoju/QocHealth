@@ -12,6 +12,7 @@
 // swiftlint:disable type_body_length
 enum Asset: String {
   case logoQoc = "logoQoc"
+  case splash = "splash"
 
   var image: Image {
     return Image(asset: self)

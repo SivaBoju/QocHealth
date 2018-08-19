@@ -19,37 +19,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LCI-yZ-EUd">
-                                <rect key="frame" x="0.0" y="64" width="375" height="523"/>
+                                <rect key="frame" x="0.0" y="66" width="375" height="571"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="bxE-Sf-CVq">
-                                    <size key="itemSize" width="80" height="80"/>
+                                    <size key="itemSize" width="120" height="120"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Wl-3U-dkt">
-                                <rect key="frame" x="156" y="608" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Test URL"/>
-                                <connections>
-                                    <action selector="testUrl" destination="BYZ-38-t0r" eventType="touchUpInside" id="1ET-c8-FsC"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DtC-nk-07s">
+                                <rect key="frame" x="16" y="641" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="JOi-6H-JlU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="LCI-yZ-EUd" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-80" id="90y-eI-nij"/>
-                            <constraint firstItem="LCI-yZ-EUd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Acx-pJ-cxh"/>
+                            <constraint firstItem="LCI-yZ-EUd" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-30" id="90y-eI-nij"/>
+                            <constraint firstItem="LCI-yZ-EUd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="2" id="Acx-pJ-cxh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LCI-yZ-EUd" secondAttribute="trailing" id="GSW-DU-YyF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DtC-nk-07s" secondAttribute="trailing" constant="16" id="WAj-Cl-hCb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DtC-nk-07s" secondAttribute="bottom" constant="5" id="XCm-uE-imW"/>
                             <constraint firstItem="LCI-yZ-EUd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Xjh-ej-fw0"/>
+                            <constraint firstItem="DtC-nk-07s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ZMS-hS-fwC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Top Apps" id="emf-TK-MNw"/>
                     <connections>
                         <outlet property="appsCollectionView" destination="LCI-yZ-EUd" id="sxP-Dy-sH0"/>
+                        <outlet property="infoLabel" destination="DtC-nk-07s" id="3Fa-24-jlJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

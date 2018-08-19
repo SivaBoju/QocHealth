@@ -13,21 +13,25 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ListCell" id="gTV-IL-0wX" customClass="ListViewCell" customModule="qoc" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kZ2-V1-gdH">
-                        <rect key="frame" x="2" y="2" width="76" height="76"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRi-vF-8dd">
-                        <rect key="frame" x="0.0" y="59" width="80" height="21"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoQoc" translatesAutoresizingMaskIntoConstraints="NO" id="kZ2-V1-gdH">
+                        <rect key="frame" x="30" y="10" width="60" height="60"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="SOf-3t-Ggp"/>
+                            <constraint firstAttribute="width" constant="60" id="ODz-3K-Wfu"/>
+                            <constraint firstAttribute="height" constant="60" id="XFD-jq-DJl"/>
                         </constraints>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="PRi-vF-8dd">
+                        <rect key="frame" x="5" y="74.5" width="110" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="1Uo-rk-Icn"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                         <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -35,13 +39,14 @@
             </view>
             <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="kZ2-V1-gdH" secondAttribute="trailing" constant="2" id="IqE-7h-RD9"/>
-                <constraint firstAttribute="bottom" secondItem="PRi-vF-8dd" secondAttribute="bottom" id="Q73-Qi-fOW"/>
-                <constraint firstItem="PRi-vF-8dd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ypj-Ym-NF8"/>
-                <constraint firstItem="kZ2-V1-gdH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="con-ML-nkq"/>
-                <constraint firstAttribute="bottom" secondItem="kZ2-V1-gdH" secondAttribute="bottom" constant="2" id="hEV-mG-LJf"/>
-                <constraint firstItem="kZ2-V1-gdH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="hzL-8o-mYM"/>
-                <constraint firstAttribute="trailing" secondItem="PRi-vF-8dd" secondAttribute="trailing" id="p08-iR-fF0"/>
+                <constraint firstAttribute="trailing" secondItem="PRi-vF-8dd" secondAttribute="trailing" constant="5" id="6wJ-d8-8Vd"/>
+                <constraint firstAttribute="bottom" secondItem="PRi-vF-8dd" secondAttribute="bottom" constant="5" id="Jqf-bx-zx0"/>
+                <constraint firstAttribute="bottom" secondItem="PRi-vF-8dd" secondAttribute="bottom" constant="5" id="QON-nj-VhH"/>
+                <constraint firstItem="kZ2-V1-gdH" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="YEP-O5-SQF"/>
+                <constraint firstAttribute="trailing" secondItem="PRi-vF-8dd" secondAttribute="trailing" constant="5" id="YYl-3f-GOT"/>
+                <constraint firstItem="PRi-vF-8dd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="cy6-n5-6BR"/>
+                <constraint firstItem="kZ2-V1-gdH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="hD1-zM-ZLR"/>
+                <constraint firstItem="PRi-vF-8dd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="kMG-7m-E2h"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
@@ -50,4 +55,7 @@
             </connections>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="logoQoc" width="64" height="64"/>
+    </resources>
 </document>

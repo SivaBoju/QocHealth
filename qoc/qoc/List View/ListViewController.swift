@@ -13,14 +13,17 @@ class ListViewController: UIViewController {
 
   //  MARK: - Outlets
   @IBOutlet weak private var appsCollectionView:UICollectionView!
-  
+  @IBOutlet weak private var infoLabel:UILabel!
+
   //  MARK: - Constants
   private let kImageCellIdentifier = "imageCell"
-  private let kImageItemWidth:CGFloat = 80.0
-  private let kImageItemHeight:CGFloat = 80.0
-  private let kHeightGeneralCell:CGFloat = 80.0
-  private let kHeightImageCell:CGFloat = 120.0
+  private let kImageItemWidth:CGFloat = 120.0
+  private let kImageItemHeight:CGFloat = 120.0
 
+  //  MARK: - Properties
+  private let manager:DataManager = DataManager()
+  private var feed:AppleFeed?
+  
   //  MARK: - Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,8 +37,13 @@ class ListViewController: UIViewController {
   //  MARK: - Private Methods
   private func initScreen() {
     self.title = L10n.titleListView.string
-    self.setupStatusView()
+    self.setupAppInfo()
+    self.setupDataManager()
     self.setupCollectionView()
+  }
+  
+  private func setupAppInfo() {
+    self.infoLabel.text = "\(AppInfoProvider.appName)_v\(AppInfoProvider.version)_b\(AppInfoProvider.version)"
   }
   
   private func setupStatusView() {
@@ -44,10 +52,6 @@ class ListViewController: UIViewController {
     self.view.addSubview(statusView)
   }
   
-  @IBAction func testUrl() {
-    print("testing Url")
-  }
-
 }
 
 //  MARK: - Collection View Extension
@@ -71,25 +75,60 @@ extension ListViewController: UICollectionViewDataSource, UICollectionViewDelega
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 36
+    var numberOfItems = 0
+    if let feed = self.feed {
+      numberOfItems = feed.entries.count
+    }
+    return numberOfItems
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
     let listCell : ListViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ListCell", for: indexPath) as! ListViewCell
-    listCell.setupCell(imageName: "Boju")
+    if let feed = self.feed {
+      let entry:Entry = feed.entries[indexPath.row]
+      listCell.setupCell(entry: entry)
+    }
     return listCell
   }
   
   //  MARK: - Collection View Layout Methods
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: kImageItemWidth, height: kImageItemHeight)
+    return CGSize(width: self.appsCollectionView.frame.width / 4, height: kImageItemHeight)
   }
   
   //  MARK: - Collection View Delegate Methods
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let detailViewController = DetailViewController(nibName: "DetailViewController", bundle: nil)
+    if let feed = self.feed {
+      let entry:Entry = feed.entries[indexPath.row]
+      detailViewController.title = entry.name
+    }
     self.navigationController?.pushViewController(detailViewController, animated: true)
   }
   
+}
+
+//  MARK: - Data Manager Delegate Extension
+extension ListViewController: DataManagerDelegate {
+  
+  func setupDataManager() {
+    self.manager.delegate = self
+    self.setupStatusView()
+    self.manager.getTopApps()
+  }
+  
+  func didFetchAppleFeed(feed: AppleFeed) {
+    self.feed = feed
+    self.appsCollectionView.reloadData()
+  }
+  
+  func didFailedAppleFeed(error: DataManagerErrorType) {
+    switch error {
+    case .emptyData:
+      print("no data")
+    default:
+      print("some error")
+    }
+  }
 }

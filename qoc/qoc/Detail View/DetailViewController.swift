@@ -23,7 +23,7 @@ class DetailViewController: UIViewController {
   
   //  MARK: - Private Methods
   private func initScreen() {
-    self.title = L10n.titleDetailView.string
+//    self.title = L10n.titleDetailView.string
   }
 
 }
