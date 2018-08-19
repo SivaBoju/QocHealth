@@ -13,6 +13,26 @@ enum L10n {
   case statusHeadline
   /// Fetching details...
   case statusSubHeadLine
+  /// Release Date
+  case titleReleaseDate
+  /// Summary
+  case titleSummary
+  /// Price
+  case titlePrice
+  /// Category
+  case titleCategory
+  /// Publisher
+  case titlePublisher
+  /// Download
+  case titleDownload
+  /// Api service failed
+  case failedApi
+  /// No data available
+  case failedData
+  /// Mistaken taken
+  case failedJson
+  /// Unknown error
+  case failedMisc
 }
 // swiftlint:enable type_body_length
 
@@ -29,6 +49,26 @@ extension L10n: CustomStringConvertible {
         return L10n.tr(key: "statusHeadline")
       case .statusSubHeadLine:
         return L10n.tr(key: "statusSubHeadLine")
+      case .titleReleaseDate:
+        return L10n.tr(key: "titleReleaseDate")
+      case .titleSummary:
+        return L10n.tr(key: "titleSummary")
+      case .titlePrice:
+        return L10n.tr(key: "titlePrice")
+      case .titleCategory:
+        return L10n.tr(key: "titleCategory")
+      case .titlePublisher:
+        return L10n.tr(key: "titlePublisher")
+      case .titleDownload:
+        return L10n.tr(key: "titleDownload")
+      case .failedApi:
+        return L10n.tr(key: "failedApi")
+      case .failedData:
+        return L10n.tr(key: "failedData")
+      case .failedJson:
+        return L10n.tr(key: "failedJson")
+      case .failedMisc:
+        return L10n.tr(key: "failedMisc")
     }
   }
 

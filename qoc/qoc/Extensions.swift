@@ -58,6 +58,21 @@ extension UIImageView {
   }
 }
 
+//  MARK: - String Extensions
+extension String {
+  //  method to convert string date to specific format
+  func toDate(fromFormat:String, toFormat:String) ->String? {
+    let dateFormatter = DateFormatter()
+    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+    dateFormatter.dateFormat = fromFormat
+    if let newDate = dateFormatter.date(from:self) {
+      dateFormatter.dateFormat = toFormat
+      return dateFormatter.string(from: newDate)
+    }
+    return nil
+  }
+}
+
 //  MARK: - View Extensions
 extension UIView {
   //  method to load view from xib file

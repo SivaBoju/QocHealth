@@ -101,8 +101,7 @@ extension ListViewController: UICollectionViewDataSource, UICollectionViewDelega
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let detailViewController = DetailViewController(nibName: "DetailViewController", bundle: nil)
     if let feed = self.feed {
-      let entry:Entry = feed.entries[indexPath.row]
-      detailViewController.title = entry.name
+      detailViewController.entry = feed.entries[indexPath.row]
     }
     self.navigationController?.pushViewController(detailViewController, animated: true)
   }
@@ -126,9 +125,9 @@ extension ListViewController: DataManagerDelegate {
   func didFailedAppleFeed(error: DataManagerErrorType) {
     switch error {
     case .emptyData:
-      print("no data")
+      self.infoLabel.text = L10n.failedData.string
     default:
-      print("some error")
+      self.infoLabel.text = L10n.failedMisc.string
     }
   }
 }

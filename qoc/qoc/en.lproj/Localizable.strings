@@ -11,3 +11,17 @@
 "titleDetailView" = "Detail";
 "statusHeadline" = "Top Apps";
 "statusSubHeadLine" = "Fetching details...";
+
+//  Detail View
+"titleReleaseDate" = "Release Date";
+"titleSummary" = "Summary";
+"titlePrice" = "Price";
+"titleCategory" = "Category";
+"titlePublisher" = "Publisher";
+"titleDownload" = "Download";
+
+//  Data Manager
+"failedApi" = "Api service failed";
+"failedData" = "No data available";
+"failedJson" = "Mistaken taken";
+"failedMisc" = "Unknown error";
