@@ -33,6 +33,14 @@ class DataManager:NSObject {
     super.init()
   }
 
+  //  MARK: - Private Methods
+  func popuateData(feedData:[String:Any]) {
+    if let feed:AppleFeed = AppleFeed(json: feedData["feed"] as! [String : Any]) {
+      self.feed = feed
+      self.delegate?.didFetchAppleFeed(feed: feed)
+    }
+  }
+
   //  MARK: - Public Methods
   func getTopApps() {
     let getURL = URL(string: "http://phobos.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=100/json")!
@@ -68,13 +76,6 @@ class DataManager:NSObject {
         })
       }
     }).resume()
-  }
-  
-  func popuateData(feedData:[String:Any]) {
-    if let feed:AppleFeed = AppleFeed(json: feedData["feed"] as! [String : Any]) {
-      self.feed = feed
-      self.delegate?.didFetchAppleFeed(feed: feed)
-    }
   }
   
 }
